@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fft_acc01">
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+       <!-- android:theme="@android:style/Theme.NoTitleBar"> -->
+        <activity android:name=".SDC_Control"></activity>
+        <activity android:name=".AccFFT" />
+        <activity android:name=".RawAccValue" />
+        <activity android:name=".SDC_CANdisp" />
+        <activity android:name=".SuspStroke" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
+
+        <service android:name=".BindServiceSensorHandling" />
+    </application>
+
+    <uses-feature android:name="android.hardware.usb.host" />
+
+</manifest>
